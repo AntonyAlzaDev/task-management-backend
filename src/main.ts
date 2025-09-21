@@ -6,8 +6,15 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
   app.enableCors({
-    origin: 'https://task-frontend-88pn.onrender.com',
+    origin: [
+      'http://localhost:4200',
+      'https://task-frontend-88pn.onrender.com'
+    ],
+    methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
     credentials: true,
+    preflightContinue: false,
+    optionsSuccessStatus: 204
   });
 
   app.useGlobalPipes(new ValidationPipe({
