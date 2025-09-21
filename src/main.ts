@@ -6,7 +6,7 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
   app.enableCors({
-    origin: process.env.FRONTEND_URL || 'https://task-frontend-88pn.onrender.com',
+    origin: 'https://task-frontend-88pn.onrender.com',
     credentials: true,
   });
 
